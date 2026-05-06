@@ -1,0 +1,868 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		072E3474BA734EF98950E72A /* ElectricityModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DBEADBB8C4070A4EF2E8B /* ElectricityModels.swift */; };
+		0866033A9C8349C48D79D969 /* DebugWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD88997C91194328A2174D22 /* DebugWebView.swift */; };
+		24C96C683B4F48978CA1902E /* BalanceSparkline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A208E4263710440A943248B7 /* BalanceSparkline.swift */; };
+		345C2C2D3AAB42EB80625DC2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009C345ACC474C06B9F43174 /* DashboardView.swift */; };
+		4292E2A16214425F8BA48841 /* ElectricityAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA72480A414ABFA7A2B938 /* ElectricityAnalytics.swift */; };
+		4D87995B58B14CB2BF0E5BC6 /* DormWattWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1971374A9A9449C09D0F224B /* DormWattWidget.swift */; };
+		4DBC62F093A74620B6940BC9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81556F416E054FA68AA03135 /* SettingsViewModel.swift */; };
+		4F4AE641BF3B4E639BE9F143 /* BalanceSparkline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A208E4263710440A943248B7 /* BalanceSparkline.swift */; };
+		540976E4C29A4FE591003962 /* DormWattWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8897A4C28B394513AAD34157 /* DormWattWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5D6A1D84A54145F1B066F6A6 /* BackgroundRefreshCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147E67159894DD99681950A /* BackgroundRefreshCoordinator.swift */; };
+		7356DEFA61224094BC188382 /* StorageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE822D5E2D934A0B83961C1B /* StorageServices.swift */; };
+		74A11F1123D54619B043AE19 /* BalanceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CB0BE205A24FE88966934F /* BalanceParser.swift */; };
+		9B24D15564C94C2C8DA2484A /* WKWebViewElectricityCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C925E03DDF4722BD906E2B /* WKWebViewElectricityCollector.swift */; };
+		ACC5DF7B2FAB05D300B49460 /* DormWattApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC5DF7A2FAB05D300B49460 /* DormWattApp.swift */; };
+		ACC5DF7D2FAB05D300B49460 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC5DF7C2FAB05D300B49460 /* ContentView.swift */; };
+		ACC5DF7F2FAB05D400B49460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC5DF7E2FAB05D400B49460 /* Assets.xcassets */; };
+		ACC5DF832FAB05D400B49460 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC5DF822FAB05D400B49460 /* Preview Assets.xcassets */; };
+		ACC5DF8D2FAB05D500B49460 /* DormWattTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC5DF8C2FAB05D500B49460 /* DormWattTests.swift */; };
+		ACC5DF972FAB05D500B49460 /* DormWattUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC5DF962FAB05D500B49460 /* DormWattUITests.swift */; };
+		ACC5DF992FAB05D500B49460 /* DormWattUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC5DF982FAB05D500B49460 /* DormWattUITestsLaunchTests.swift */; };
+		BABEF0C9C30347528D658A07 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114670CEAFC4DB6ACE26ED1 /* DashboardViewModel.swift */; };
+		BC349DA98E424041A1DBDA3C /* ElectricityDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8629FC825D34480D80C7A200 /* ElectricityDataProvider.swift */; };
+		C5E3924323334067A349E28E /* ElectricityModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8DBEADBB8C4070A4EF2E8B /* ElectricityModels.swift */; };
+		CDA29F6C3DF8468CAD5DA4B3 /* ElectricityAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BA72480A414ABFA7A2B938 /* ElectricityAnalytics.swift */; };
+		EAAFA214638743F5874B8AF9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D767145ED4A87B3AFE5C8 /* SettingsView.swift */; };
+		EF98EEB0972344E1BC31DDBC /* ElectricityRefreshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBDE9919CE841E4A4543313 /* ElectricityRefreshManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4142D00CE05242E7A7D0B69F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACC5DF6F2FAB05D300B49460 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 808B1D4D7AD14AEA872DD17A;
+			remoteInfo = DormWattWidget;
+		};
+		ACC5DF892FAB05D500B49460 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACC5DF6F2FAB05D300B49460 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACC5DF762FAB05D300B49460;
+			remoteInfo = DormWatt;
+		};
+		ACC5DF932FAB05D500B49460 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ACC5DF6F2FAB05D300B49460 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ACC5DF762FAB05D300B49460;
+			remoteInfo = DormWatt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BED7DF456B124EB9B335C66D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				540976E4C29A4FE591003962 /* DormWattWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		009C345ACC474C06B9F43174 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		1971374A9A9449C09D0F224B /* DormWattWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormWattWidget.swift; sourceTree = "<group>"; };
+		23CB0BE205A24FE88966934F /* BalanceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceParser.swift; sourceTree = "<group>"; };
+		72C925E03DDF4722BD906E2B /* WKWebViewElectricityCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewElectricityCollector.swift; sourceTree = "<group>"; };
+		7B5D767145ED4A87B3AFE5C8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7D8DBEADBB8C4070A4EF2E8B /* ElectricityModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricityModels.swift; sourceTree = "<group>"; };
+		81556F416E054FA68AA03135 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		8629FC825D34480D80C7A200 /* ElectricityDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricityDataProvider.swift; sourceTree = "<group>"; };
+		8897A4C28B394513AAD34157 /* DormWattWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DormWattWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A208E4263710440A943248B7 /* BalanceSparkline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceSparkline.swift; sourceTree = "<group>"; };
+		ACC5DF772FAB05D300B49460 /* DormWatt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DormWatt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACC5DF7A2FAB05D300B49460 /* DormWattApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormWattApp.swift; sourceTree = "<group>"; };
+		ACC5DF7C2FAB05D300B49460 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ACC5DF7E2FAB05D400B49460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ACC5DF802FAB05D400B49460 /* DormWatt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DormWatt.entitlements; sourceTree = "<group>"; };
+		ACC5DF822FAB05D400B49460 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ACC5DF882FAB05D500B49460 /* DormWattTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DormWattTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACC5DF8C2FAB05D500B49460 /* DormWattTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormWattTests.swift; sourceTree = "<group>"; };
+		ACC5DF922FAB05D500B49460 /* DormWattUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DormWattUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACC5DF962FAB05D500B49460 /* DormWattUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormWattUITests.swift; sourceTree = "<group>"; };
+		ACC5DF982FAB05D500B49460 /* DormWattUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DormWattUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B147E67159894DD99681950A /* BackgroundRefreshCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundRefreshCoordinator.swift; sourceTree = "<group>"; };
+		D1AA5FBA21694316AB58137E /* DormWattWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DormWattWidget.entitlements; sourceTree = "<group>"; };
+		E0BA72480A414ABFA7A2B938 /* ElectricityAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricityAnalytics.swift; sourceTree = "<group>"; };
+		E114670CEAFC4DB6ACE26ED1 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		EE822D5E2D934A0B83961C1B /* StorageServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServices.swift; sourceTree = "<group>"; };
+		F43D4E305A7C417D965DBAA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBBDE9919CE841E4A4543313 /* ElectricityRefreshManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricityRefreshManager.swift; sourceTree = "<group>"; };
+		FD88997C91194328A2174D22 /* DebugWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugWebView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ACC5DF742FAB05D300B49460 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC5DF852FAB05D500B49460 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC5DF8F2FAB05D500B49460 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD2D91890C8941D0B7AEE5FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09907BA80B4E4F31962ED31E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E114670CEAFC4DB6ACE26ED1 /* DashboardViewModel.swift */,
+				81556F416E054FA68AA03135 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4FA077EF74A44BD49B3EE11C /* DormWattWidget */ = {
+			isa = PBXGroup;
+			children = (
+				1971374A9A9449C09D0F224B /* DormWattWidget.swift */,
+				F43D4E305A7C417D965DBAA3 /* Info.plist */,
+				D1AA5FBA21694316AB58137E /* DormWattWidget.entitlements */,
+			);
+			path = DormWattWidget;
+			sourceTree = "<group>";
+		};
+		5833DA593A914F378FC2DCF8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				23CB0BE205A24FE88966934F /* BalanceParser.swift */,
+				B147E67159894DD99681950A /* BackgroundRefreshCoordinator.swift */,
+				EE822D5E2D934A0B83961C1B /* StorageServices.swift */,
+				8629FC825D34480D80C7A200 /* ElectricityDataProvider.swift */,
+				FBBDE9919CE841E4A4543313 /* ElectricityRefreshManager.swift */,
+				72C925E03DDF4722BD906E2B /* WKWebViewElectricityCollector.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A210E67798084C5C8A48FCCC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				009C345ACC474C06B9F43174 /* DashboardView.swift */,
+				7B5D767145ED4A87B3AFE5C8 /* SettingsView.swift */,
+				A208E4263710440A943248B7 /* BalanceSparkline.swift */,
+				FD88997C91194328A2174D22 /* DebugWebView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ACC5DF6E2FAB05D300B49460 = {
+			isa = PBXGroup;
+			children = (
+				ACC5DF792FAB05D300B49460 /* DormWatt */,
+				4FA077EF74A44BD49B3EE11C /* DormWattWidget */,
+				ACC5DF8B2FAB05D500B49460 /* DormWattTests */,
+				ACC5DF952FAB05D500B49460 /* DormWattUITests */,
+				ACC5DF782FAB05D300B49460 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ACC5DF782FAB05D300B49460 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ACC5DF772FAB05D300B49460 /* DormWatt.app */,
+				8897A4C28B394513AAD34157 /* DormWattWidget.appex */,
+				ACC5DF882FAB05D500B49460 /* DormWattTests.xctest */,
+				ACC5DF922FAB05D500B49460 /* DormWattUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACC5DF792FAB05D300B49460 /* DormWatt */ = {
+			isa = PBXGroup;
+			children = (
+				ACC5DF7A2FAB05D300B49460 /* DormWattApp.swift */,
+				ACC5DF7C2FAB05D300B49460 /* ContentView.swift */,
+				BB11399049214D5E82D64956 /* Models */,
+				5833DA593A914F378FC2DCF8 /* Services */,
+				09907BA80B4E4F31962ED31E /* ViewModels */,
+				A210E67798084C5C8A48FCCC /* Views */,
+				ACC5DF7E2FAB05D400B49460 /* Assets.xcassets */,
+				ACC5DF802FAB05D400B49460 /* DormWatt.entitlements */,
+				ACC5DF812FAB05D400B49460 /* Preview Content */,
+			);
+			path = DormWatt;
+			sourceTree = "<group>";
+		};
+		ACC5DF812FAB05D400B49460 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				ACC5DF822FAB05D400B49460 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ACC5DF8B2FAB05D500B49460 /* DormWattTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACC5DF8C2FAB05D500B49460 /* DormWattTests.swift */,
+			);
+			path = DormWattTests;
+			sourceTree = "<group>";
+		};
+		ACC5DF952FAB05D500B49460 /* DormWattUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ACC5DF962FAB05D500B49460 /* DormWattUITests.swift */,
+				ACC5DF982FAB05D500B49460 /* DormWattUITestsLaunchTests.swift */,
+			);
+			path = DormWattUITests;
+			sourceTree = "<group>";
+		};
+		BB11399049214D5E82D64956 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D8DBEADBB8C4070A4EF2E8B /* ElectricityModels.swift */,
+				E0BA72480A414ABFA7A2B938 /* ElectricityAnalytics.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		808B1D4D7AD14AEA872DD17A /* DormWattWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 094A4009D2A54AD78C63B66B /* Build configuration list for PBXNativeTarget "DormWattWidget" */;
+			buildPhases = (
+				8589751B46EC4D86B994552A /* Sources */,
+				DD2D91890C8941D0B7AEE5FC /* Frameworks */,
+				B38EB4373AE844E98EC9D25B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DormWattWidget;
+			productName = DormWattWidget;
+			productReference = 8897A4C28B394513AAD34157 /* DormWattWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		ACC5DF762FAB05D300B49460 /* DormWatt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACC5DF9C2FAB05D500B49460 /* Build configuration list for PBXNativeTarget "DormWatt" */;
+			buildPhases = (
+				ACC5DF732FAB05D300B49460 /* Sources */,
+				ACC5DF742FAB05D300B49460 /* Frameworks */,
+				ACC5DF752FAB05D300B49460 /* Resources */,
+				BED7DF456B124EB9B335C66D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38C21797A4384371AD535115 /* PBXTargetDependency */,
+			);
+			name = DormWatt;
+			productName = DormWatt;
+			productReference = ACC5DF772FAB05D300B49460 /* DormWatt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ACC5DF872FAB05D500B49460 /* DormWattTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACC5DF9F2FAB05D500B49460 /* Build configuration list for PBXNativeTarget "DormWattTests" */;
+			buildPhases = (
+				ACC5DF842FAB05D500B49460 /* Sources */,
+				ACC5DF852FAB05D500B49460 /* Frameworks */,
+				ACC5DF862FAB05D500B49460 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACC5DF8A2FAB05D500B49460 /* PBXTargetDependency */,
+			);
+			name = DormWattTests;
+			productName = DormWattTests;
+			productReference = ACC5DF882FAB05D500B49460 /* DormWattTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ACC5DF912FAB05D500B49460 /* DormWattUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ACC5DFA22FAB05D500B49460 /* Build configuration list for PBXNativeTarget "DormWattUITests" */;
+			buildPhases = (
+				ACC5DF8E2FAB05D500B49460 /* Sources */,
+				ACC5DF8F2FAB05D500B49460 /* Frameworks */,
+				ACC5DF902FAB05D500B49460 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ACC5DF942FAB05D500B49460 /* PBXTargetDependency */,
+			);
+			name = DormWattUITests;
+			productName = DormWattUITests;
+			productReference = ACC5DF922FAB05D500B49460 /* DormWattUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ACC5DF6F2FAB05D300B49460 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					808B1D4D7AD14AEA872DD17A = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					ACC5DF762FAB05D300B49460 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					ACC5DF872FAB05D500B49460 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = ACC5DF762FAB05D300B49460;
+					};
+					ACC5DF912FAB05D500B49460 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = ACC5DF762FAB05D300B49460;
+					};
+				};
+			};
+			buildConfigurationList = ACC5DF722FAB05D300B49460 /* Build configuration list for PBXProject "DormWatt" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ACC5DF6E2FAB05D300B49460;
+			productRefGroup = ACC5DF782FAB05D300B49460 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ACC5DF762FAB05D300B49460 /* DormWatt */,
+				808B1D4D7AD14AEA872DD17A /* DormWattWidget */,
+				ACC5DF872FAB05D500B49460 /* DormWattTests */,
+				ACC5DF912FAB05D500B49460 /* DormWattUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ACC5DF752FAB05D300B49460 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC5DF832FAB05D400B49460 /* Preview Assets.xcassets in Resources */,
+				ACC5DF7F2FAB05D400B49460 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC5DF862FAB05D500B49460 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC5DF902FAB05D500B49460 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B38EB4373AE844E98EC9D25B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8589751B46EC4D86B994552A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D87995B58B14CB2BF0E5BC6 /* DormWattWidget.swift in Sources */,
+				C5E3924323334067A349E28E /* ElectricityModels.swift in Sources */,
+				4292E2A16214425F8BA48841 /* ElectricityAnalytics.swift in Sources */,
+				4F4AE641BF3B4E639BE9F143 /* BalanceSparkline.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC5DF732FAB05D300B49460 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74A11F1123D54619B043AE19 /* BalanceParser.swift in Sources */,
+				ACC5DF7D2FAB05D300B49460 /* ContentView.swift in Sources */,
+				4DBC62F093A74620B6940BC9 /* SettingsViewModel.swift in Sources */,
+				9B24D15564C94C2C8DA2484A /* WKWebViewElectricityCollector.swift in Sources */,
+				345C2C2D3AAB42EB80625DC2 /* DashboardView.swift in Sources */,
+				BC349DA98E424041A1DBDA3C /* ElectricityDataProvider.swift in Sources */,
+				0866033A9C8349C48D79D969 /* DebugWebView.swift in Sources */,
+				CDA29F6C3DF8468CAD5DA4B3 /* ElectricityAnalytics.swift in Sources */,
+				7356DEFA61224094BC188382 /* StorageServices.swift in Sources */,
+				5D6A1D84A54145F1B066F6A6 /* BackgroundRefreshCoordinator.swift in Sources */,
+				072E3474BA734EF98950E72A /* ElectricityModels.swift in Sources */,
+				BABEF0C9C30347528D658A07 /* DashboardViewModel.swift in Sources */,
+				ACC5DF7B2FAB05D300B49460 /* DormWattApp.swift in Sources */,
+				EF98EEB0972344E1BC31DDBC /* ElectricityRefreshManager.swift in Sources */,
+				24C96C683B4F48978CA1902E /* BalanceSparkline.swift in Sources */,
+				EAAFA214638743F5874B8AF9 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC5DF842FAB05D500B49460 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC5DF8D2FAB05D500B49460 /* DormWattTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ACC5DF8E2FAB05D500B49460 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACC5DF992FAB05D500B49460 /* DormWattUITestsLaunchTests.swift in Sources */,
+				ACC5DF972FAB05D500B49460 /* DormWattUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38C21797A4384371AD535115 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 808B1D4D7AD14AEA872DD17A /* DormWattWidget */;
+			targetProxy = 4142D00CE05242E7A7D0B69F /* PBXContainerItemProxy */;
+		};
+		ACC5DF8A2FAB05D500B49460 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACC5DF762FAB05D300B49460 /* DormWatt */;
+			targetProxy = ACC5DF892FAB05D500B49460 /* PBXContainerItemProxy */;
+		};
+		ACC5DF942FAB05D500B49460 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ACC5DF762FAB05D300B49460 /* DormWatt */;
+			targetProxy = ACC5DF932FAB05D500B49460 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		31441196588A4A82B4D96AFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = DormWattWidget/DormWattWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = DormWattWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DormWatt.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = appex;
+			};
+			name = Debug;
+		};
+		39F65C5B5D4A47A6956AF7C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = DormWattWidget/DormWattWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = DormWattWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DormWatt.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = appex;
+			};
+			name = Release;
+		};
+		ACC5DF9A2FAB05D500B49460 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ACC5DF9B2FAB05D500B49460 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		ACC5DF9D2FAB05D500B49460 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DormWatt/DormWatt.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DormWatt/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DormWatt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ACC5DF9E2FAB05D500B49460 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DormWatt/DormWatt.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DormWatt/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DormWatt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ACC5DFA02FAB05D500B49460 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DormWattTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DormWatt.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DormWatt";
+			};
+			name = Debug;
+		};
+		ACC5DFA12FAB05D500B49460 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DormWattTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DormWatt.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DormWatt";
+			};
+			name = Release;
+		};
+		ACC5DFA32FAB05D500B49460 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DormWattUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DormWatt;
+			};
+			name = Debug;
+		};
+		ACC5DFA42FAB05D500B49460 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.DormWattUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DormWatt;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		094A4009D2A54AD78C63B66B /* Build configuration list for PBXNativeTarget "DormWattWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31441196588A4A82B4D96AFE /* Debug */,
+				39F65C5B5D4A47A6956AF7C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACC5DF722FAB05D300B49460 /* Build configuration list for PBXProject "DormWatt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC5DF9A2FAB05D500B49460 /* Debug */,
+				ACC5DF9B2FAB05D500B49460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACC5DF9C2FAB05D500B49460 /* Build configuration list for PBXNativeTarget "DormWatt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC5DF9D2FAB05D500B49460 /* Debug */,
+				ACC5DF9E2FAB05D500B49460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACC5DF9F2FAB05D500B49460 /* Build configuration list for PBXNativeTarget "DormWattTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC5DFA02FAB05D500B49460 /* Debug */,
+				ACC5DFA12FAB05D500B49460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ACC5DFA22FAB05D500B49460 /* Build configuration list for PBXNativeTarget "DormWattUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ACC5DFA32FAB05D500B49460 /* Debug */,
+				ACC5DFA42FAB05D500B49460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ACC5DF6F2FAB05D300B49460 /* Project object */;
+}

@@ -1,0 +1,10 @@
+.DS_Store
+DerivedData/
+build/
+dist/
+node_modules/
+*.xcuserstate
+*.xcuserdata/
+*.zip
+*.provisionprofile
+*.mobileprovision
