@@ -90,7 +90,7 @@ final class DashboardViewModel: ObservableObject {
             updatedRecords.removeAll { $0.timestamp == record.timestamp }
             updatedRecords.append(record)
             apply(records: updatedRecords)
-            WidgetCenter.shared.reloadAllTimelines()
+            WidgetCenter.shared.reloadTimelines(ofKind: DormWattSharedConfiguration.widgetKind)
             state = .success
             appendLog("Refresh succeeded. balance=\(record.balance)")
         } catch {
@@ -123,7 +123,7 @@ final class DashboardViewModel: ObservableObject {
         latestRecord = nil
         errorMessage = nil
         state = .idle
-        WidgetCenter.shared.reloadAllTimelines()
+        WidgetCenter.shared.reloadTimelines(ofKind: DormWattSharedConfiguration.widgetKind)
         appendLog("Cached electricity data cleared.")
     }
 
@@ -134,6 +134,7 @@ final class DashboardViewModel: ObservableObject {
         apply(records: updatedRecords)
         errorMessage = nil
         state = .success
+        WidgetCenter.shared.reloadTimelines(ofKind: DormWattSharedConfiguration.widgetKind)
         appendLog("Background refresh applied. balance=\(record.balance)")
     }
 

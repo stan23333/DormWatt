@@ -32,20 +32,28 @@ final class AppSettingsStore {
     func save(_ settings: AppSettings) throws {
         let data = try JSONEncoder().encode(settings)
         defaults.set(data, forKey: key)
+        defaults.synchronize()
     }
 }
 
 final class ElectricityHistoryStore {
     private let defaults: UserDefaults
+    private let fallbackDefaults: UserDefaults?
     private let key: String
 
-    init(defaults: UserDefaults = DormWattSharedConfiguration.sharedDefaults(), key: String = "electricityHistoryRecords") {
+    init(
+        defaults: UserDefaults = DormWattSharedConfiguration.sharedDefaults(),
+        fallbackDefaults: UserDefaults? = nil,
+        key: String = "electricityHistoryRecords"
+    ) {
         self.defaults = defaults
+        self.fallbackDefaults = fallbackDefaults
         self.key = key
     }
 
     func loadRecords() -> [ElectricityRecord] {
-        guard let data = defaults.data(forKey: key),
+        let data = defaults.data(forKey: key) ?? fallbackDefaults?.data(forKey: key)
+        guard let data,
               let records = try? JSONDecoder().decode([ElectricityRecord].self, from: data) else {
             return []
         }
@@ -63,10 +71,12 @@ final class ElectricityHistoryStore {
         let sortedRecords = ElectricityAnalytics.sorted(records)
         let data = try JSONEncoder().encode(sortedRecords)
         defaults.set(data, forKey: key)
+        defaults.synchronize()
     }
 
     func clearRecords() {
         defaults.removeObject(forKey: key)
+        defaults.synchronize()
     }
 
     func latestRecord() -> ElectricityRecord? {
@@ -76,15 +86,21 @@ final class ElectricityHistoryStore {
 
 final class SharedElectricityStore {
     private let defaults: UserDefaults
+    private let fallbackDefaults: UserDefaults?
     private let key: String
 
-    init(defaults: UserDefaults = DormWattSharedConfiguration.sharedDefaults(), key: String = "latestElectricityRecord") {
+    init(
+        defaults: UserDefaults = DormWattSharedConfiguration.sharedDefaults(),
+        fallbackDefaults: UserDefaults? = nil,
+        key: String = "latestElectricityRecord"
+    ) {
         self.defaults = defaults
+        self.fallbackDefaults = fallbackDefaults
         self.key = key
     }
 
     func loadLatestRecord() -> ElectricityRecord? {
-        guard let data = defaults.data(forKey: key) else {
+        guard let data = defaults.data(forKey: key) ?? fallbackDefaults?.data(forKey: key) else {
             return nil
         }
         return try? JSONDecoder().decode(ElectricityRecord.self, from: data)
@@ -93,10 +109,12 @@ final class SharedElectricityStore {
     func saveLatestRecord(_ record: ElectricityRecord) throws {
         let data = try JSONEncoder().encode(record)
         defaults.set(data, forKey: key)
+        defaults.synchronize()
     }
 
     func clearLatestRecord() {
         defaults.removeObject(forKey: key)
+        defaults.synchronize()
     }
 }
 

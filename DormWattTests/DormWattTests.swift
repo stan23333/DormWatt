@@ -79,7 +79,7 @@ final class DormWattTests: XCTestCase {
 
     func testSharedElectricityStoreSavesLatestRecord() throws {
         let defaults = makeDefaults()
-        let store = SharedElectricityStore(defaults: defaults)
+        let store = SharedElectricityStore(defaults: defaults, fallbackDefaults: nil)
         let record = ElectricityRecord(balance: 21.5, rawText: "余额：21.5", timestamp: Date())
 
         try store.saveLatestRecord(record)
@@ -89,7 +89,7 @@ final class DormWattTests: XCTestCase {
 
     func testSharedElectricityStoreClearsLatestRecord() throws {
         let defaults = makeDefaults()
-        let store = SharedElectricityStore(defaults: defaults)
+        let store = SharedElectricityStore(defaults: defaults, fallbackDefaults: nil)
         let record = ElectricityRecord(balance: 21.5, rawText: "余额：21.5", timestamp: Date())
 
         try store.saveLatestRecord(record)
@@ -100,7 +100,7 @@ final class DormWattTests: XCTestCase {
 
     func testElectricityHistoryStoreSavesLoadsAndSortsRecords() throws {
         let defaults = makeDefaults()
-        let store = ElectricityHistoryStore(defaults: defaults)
+        let store = ElectricityHistoryStore(defaults: defaults, fallbackDefaults: nil)
         let now = Date()
         let newer = ElectricityRecord(balance: 18, rawText: "newer", timestamp: now)
         let older = ElectricityRecord(balance: 20, rawText: "older", timestamp: now.addingTimeInterval(-900))
@@ -113,7 +113,7 @@ final class DormWattTests: XCTestCase {
 
     func testElectricityHistoryStoreUpsertsRecordByTimestamp() throws {
         let defaults = makeDefaults()
-        let store = ElectricityHistoryStore(defaults: defaults)
+        let store = ElectricityHistoryStore(defaults: defaults, fallbackDefaults: nil)
         let timestamp = Date()
         let original = ElectricityRecord(balance: 18, rawText: "original", timestamp: timestamp)
         let replacement = ElectricityRecord(balance: 17, rawText: "replacement", timestamp: timestamp)
@@ -126,7 +126,7 @@ final class DormWattTests: XCTestCase {
 
     func testElectricityHistoryStoreClearsRecords() throws {
         let defaults = makeDefaults()
-        let store = ElectricityHistoryStore(defaults: defaults)
+        let store = ElectricityHistoryStore(defaults: defaults, fallbackDefaults: nil)
         let record = ElectricityRecord(balance: 18, rawText: "cached", timestamp: Date())
 
         try store.saveRecord(record)
@@ -231,8 +231,8 @@ final class DormWattTests: XCTestCase {
     func testSettingsViewModelClearsCachedStoresWithoutClearingSettings() throws {
         let defaults = makeDefaults()
         let settingsStore = AppSettingsStore(defaults: defaults)
-        let historyStore = ElectricityHistoryStore(defaults: defaults)
-        let sharedStore = SharedElectricityStore(defaults: defaults)
+        let historyStore = ElectricityHistoryStore(defaults: defaults, fallbackDefaults: nil)
+        let sharedStore = SharedElectricityStore(defaults: defaults, fallbackDefaults: nil)
         let settings = validSettings()
         let record = ElectricityRecord(balance: 18.2, rawText: "cached", timestamp: Date())
         try settingsStore.save(settings)

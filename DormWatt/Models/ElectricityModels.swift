@@ -15,6 +15,7 @@ struct ElectricityRecord: Codable, Equatable, Identifiable {
 
 enum DormWattSharedConfiguration {
     static let sharedDefaultsSuiteName = "group.com.example.DormWatt"
+    static let widgetKind = "DormWattWidget"
 
     static func sharedDefaults() -> UserDefaults {
         UserDefaults(suiteName: sharedDefaultsSuiteName) ?? .standard

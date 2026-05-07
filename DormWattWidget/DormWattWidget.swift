@@ -5,6 +5,7 @@
 
 import SwiftUI
 import WidgetKit
+import OSLog
 
 struct DormWattWidgetEntry: TimelineEntry {
     let date: Date
@@ -220,7 +221,7 @@ private struct WidgetBarChart: View {
 
 @main
 struct DormWattWidget: Widget {
-    let kind = "DormWattWidget"
+    let kind = DormWattSharedConfiguration.widgetKind
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: WidgetTimelineProvider()) { entry in
@@ -233,13 +234,41 @@ struct DormWattWidget: Widget {
 }
 
 private enum WidgetHistoryReader {
+    private static let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "DormWattWidget", category: "Timeline")
+
     static func loadRecords() -> [ElectricityRecord] {
-        guard let data = DormWattSharedConfiguration.sharedDefaults().data(forKey: "electricityHistoryRecords"),
+        let recordsKey = "electricityHistoryRecords"
+        let latestKey = "latestElectricityRecord"
+        let defaults = DormWattSharedConfiguration.sharedDefaults()
+        let fallbackDefaults: UserDefaults? = nil
+        let records = records(from: defaults.data(forKey: recordsKey) ?? fallbackDefaults?.data(forKey: recordsKey))
+        guard let latestRecord = record(from: defaults.data(forKey: latestKey) ?? fallbackDefaults?.data(forKey: latestKey)) else {
+            let sortedRecords = ElectricityAnalytics.sorted(records)
+            logger.info("Loaded widget records without latest. count=\(sortedRecords.count, privacy: .public)")
+            return sortedRecords
+        }
+
+        var mergedRecords = records
+        mergedRecords.removeAll { $0.timestamp == latestRecord.timestamp }
+        mergedRecords.append(latestRecord)
+        let sortedRecords = ElectricityAnalytics.sorted(mergedRecords)
+        logger.info("Loaded widget records. count=\(sortedRecords.count, privacy: .public), latestBalance=\(latestRecord.balance, privacy: .public)")
+        return sortedRecords
+    }
+
+    private static func records(from data: Data?) -> [ElectricityRecord] {
+        guard let data,
               let records = try? JSONDecoder().decode([ElectricityRecord].self, from: data) else {
             return []
         }
+        return records
+    }
 
-        return ElectricityAnalytics.sorted(records)
+    private static func record(from data: Data?) -> ElectricityRecord? {
+        guard let data else {
+            return nil
+        }
+        return try? JSONDecoder().decode(ElectricityRecord.self, from: data)
     }
 }
 

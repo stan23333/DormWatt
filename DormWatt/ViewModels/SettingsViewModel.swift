@@ -107,7 +107,7 @@ final class SettingsViewModel: ObservableObject {
     func clearCachedData() {
         historyStore.clearRecords()
         sharedElectricityStore.clearLatestRecord()
-        WidgetCenter.shared.reloadAllTimelines()
+        WidgetCenter.shared.reloadTimelines(ofKind: DormWattSharedConfiguration.widgetKind)
         statusMessage = "Cached electricity data cleared."
         statusMessageIsError = false
     }

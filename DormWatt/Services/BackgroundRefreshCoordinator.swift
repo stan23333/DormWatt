@@ -97,7 +97,7 @@ final class BackgroundRefreshCoordinator: ObservableObject {
             try historyStore.saveRecord(record)
             latestRecord = record
             statusMessage = "Background refreshed \(record.timestamp.formatted(date: .omitted, time: .shortened))."
-            WidgetCenter.shared.reloadAllTimelines()
+            WidgetCenter.shared.reloadTimelines(ofKind: DormWattSharedConfiguration.widgetKind)
             logger.info("Background refresh succeeded. balance=\(record.balance, privacy: .public)")
         } catch {
             statusMessage = error.localizedDescription
