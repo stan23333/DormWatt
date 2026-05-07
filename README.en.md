@@ -10,13 +10,10 @@ The goal is modest and practical: reduce a repetitive lookup flow from opening a
 
 ## Preview
 
-> The images below are placeholders to avoid publishing real account data, balances, or portal screenshots. They can be replaced with sanitized real screenshots later.
-
-![Dashboard placeholder](docs/images/dashboard-placeholder.svg)
-
-![Settings placeholder](docs/images/settings-placeholder.svg)
-
-![Widget placeholder](docs/images/widget-placeholder.svg)
+|  |  |
+| :---: | :---: |
+| <img src="docs/images/dashboard.png" alt="Dashboard top" width="320" /><br/>**Dashboard (top)** | <img src="docs/images/dashboard-2.png" alt="Dashboard bottom" width="320" /><br/>**Dashboard (bottom)** |
+| <img src="docs/images/settings.png" alt="Settings" width="320" /><br/>**Settings** | <img src="docs/images/widget.png" alt="Widget" width="320" /><br/>**Widget** |
 
 ## Motivation
 

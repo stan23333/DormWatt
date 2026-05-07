@@ -10,13 +10,10 @@
 
 ## 展示
 
-> 以下图片目前是占位图，避免提交真实账号、余额或校园门户截图。后续可以用真实脱敏截图替换同名文件。
-
-![Dashboard placeholder](docs/images/dashboard-placeholder.svg)
-
-![Settings placeholder](docs/images/settings-placeholder.svg)
-
-![Widget placeholder](docs/images/widget-placeholder.svg)
+|  |  |
+| :---: | :---: |
+| <img src="docs/images/dashboard.png" alt="Dashboard 顶部" width="320" /><br/>**Dashboard 顶部** | <img src="docs/images/dashboard-2.png" alt="Dashboard 底部" width="320" /><br/>**Dashboard 底部** |
+| <img src="docs/images/settings.png" alt="Settings" width="320" /><br/>**Settings 设置** | <img src="docs/images/widget.png" alt="Widget" width="320" /><br/>**Widget 小组件** |
 
 ## 为什么做这个
 
