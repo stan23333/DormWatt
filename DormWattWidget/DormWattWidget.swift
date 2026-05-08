@@ -239,10 +239,10 @@ private enum WidgetHistoryReader {
     static func loadRecords() -> [ElectricityRecord] {
         let recordsKey = "electricityHistoryRecords"
         let latestKey = "latestElectricityRecord"
-        let defaults = DormWattSharedConfiguration.sharedDefaults()
-        let fallbackDefaults: UserDefaults? = nil
-        let records = records(from: defaults.data(forKey: recordsKey) ?? fallbackDefaults?.data(forKey: recordsKey))
-        guard let latestRecord = record(from: defaults.data(forKey: latestKey) ?? fallbackDefaults?.data(forKey: latestKey)) else {
+        let records = records(from: dataFromSharedFile(named: "electricity-history.json")
+            ?? DormWattSharedConfiguration.legacySharedDefaultsData(forKey: recordsKey))
+        guard let latestRecord = record(from: dataFromSharedFile(named: "latest-electricity-record.json")
+            ?? DormWattSharedConfiguration.legacySharedDefaultsData(forKey: latestKey)) else {
             let sortedRecords = ElectricityAnalytics.sorted(records)
             logger.info("Loaded widget records without latest. count=\(sortedRecords.count, privacy: .public)")
             return sortedRecords
@@ -269,6 +269,13 @@ private enum WidgetHistoryReader {
             return nil
         }
         return try? JSONDecoder().decode(ElectricityRecord.self, from: data)
+    }
+
+    private static func dataFromSharedFile(named fileName: String) -> Data? {
+        guard let fileURL = DormWattSharedConfiguration.sharedDataURL(fileName: fileName) else {
+            return nil
+        }
+        return try? Data(contentsOf: fileURL)
     }
 }
 

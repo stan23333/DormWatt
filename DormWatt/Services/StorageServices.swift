@@ -40,19 +40,28 @@ final class ElectricityHistoryStore {
     private let defaults: UserDefaults
     private let fallbackDefaults: UserDefaults?
     private let key: String
+    private let fileURL: URL?
+    private let usesLegacySharedDefaults: Bool
 
     init(
         defaults: UserDefaults = DormWattSharedConfiguration.sharedDefaults(),
         fallbackDefaults: UserDefaults? = nil,
-        key: String = "electricityHistoryRecords"
+        key: String = "electricityHistoryRecords",
+        fileURL: URL? = DormWattSharedConfiguration.sharedDataURL(fileName: "electricity-history.json"),
+        usesLegacySharedDefaults: Bool = true
     ) {
         self.defaults = defaults
         self.fallbackDefaults = fallbackDefaults
         self.key = key
+        self.fileURL = fileURL
+        self.usesLegacySharedDefaults = usesLegacySharedDefaults
     }
 
     func loadRecords() -> [ElectricityRecord] {
-        let data = defaults.data(forKey: key) ?? fallbackDefaults?.data(forKey: key)
+        let data = dataFromFile()
+            ?? legacySharedDefaultsData()
+            ?? defaults.data(forKey: key)
+            ?? fallbackDefaults?.data(forKey: key)
         guard let data,
               let records = try? JSONDecoder().decode([ElectricityRecord].self, from: data) else {
             return []
@@ -70,11 +79,15 @@ final class ElectricityHistoryStore {
     func replaceRecords(_ records: [ElectricityRecord]) throws {
         let sortedRecords = ElectricityAnalytics.sorted(records)
         let data = try JSONEncoder().encode(sortedRecords)
+        try saveDataToFile(data)
         defaults.set(data, forKey: key)
         defaults.synchronize()
     }
 
     func clearRecords() {
+        if let fileURL {
+            try? FileManager.default.removeItem(at: fileURL)
+        }
         defaults.removeObject(forKey: key)
         defaults.synchronize()
     }
@@ -82,25 +95,57 @@ final class ElectricityHistoryStore {
     func latestRecord() -> ElectricityRecord? {
         loadRecords().last
     }
+
+    private func dataFromFile() -> Data? {
+        guard let fileURL else {
+            return nil
+        }
+        return try? Data(contentsOf: fileURL)
+    }
+
+    private func legacySharedDefaultsData() -> Data? {
+        guard usesLegacySharedDefaults else {
+            return nil
+        }
+        return DormWattSharedConfiguration.legacySharedDefaultsData(forKey: key)
+    }
+
+    private func saveDataToFile(_ data: Data) throws {
+        guard let fileURL else {
+            return
+        }
+        let directoryURL = fileURL.deletingLastPathComponent()
+        try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+        try data.write(to: fileURL, options: [.atomic])
+    }
 }
 
 final class SharedElectricityStore {
     private let defaults: UserDefaults
     private let fallbackDefaults: UserDefaults?
     private let key: String
+    private let fileURL: URL?
+    private let usesLegacySharedDefaults: Bool
 
     init(
         defaults: UserDefaults = DormWattSharedConfiguration.sharedDefaults(),
         fallbackDefaults: UserDefaults? = nil,
-        key: String = "latestElectricityRecord"
+        key: String = "latestElectricityRecord",
+        fileURL: URL? = DormWattSharedConfiguration.sharedDataURL(fileName: "latest-electricity-record.json"),
+        usesLegacySharedDefaults: Bool = true
     ) {
         self.defaults = defaults
         self.fallbackDefaults = fallbackDefaults
         self.key = key
+        self.fileURL = fileURL
+        self.usesLegacySharedDefaults = usesLegacySharedDefaults
     }
 
     func loadLatestRecord() -> ElectricityRecord? {
-        guard let data = defaults.data(forKey: key) ?? fallbackDefaults?.data(forKey: key) else {
+        guard let data = dataFromFile()
+            ?? legacySharedDefaultsData()
+            ?? defaults.data(forKey: key)
+            ?? fallbackDefaults?.data(forKey: key) else {
             return nil
         }
         return try? JSONDecoder().decode(ElectricityRecord.self, from: data)
@@ -108,13 +153,40 @@ final class SharedElectricityStore {
 
     func saveLatestRecord(_ record: ElectricityRecord) throws {
         let data = try JSONEncoder().encode(record)
+        try saveDataToFile(data)
         defaults.set(data, forKey: key)
         defaults.synchronize()
     }
 
     func clearLatestRecord() {
+        if let fileURL {
+            try? FileManager.default.removeItem(at: fileURL)
+        }
         defaults.removeObject(forKey: key)
         defaults.synchronize()
+    }
+
+    private func dataFromFile() -> Data? {
+        guard let fileURL else {
+            return nil
+        }
+        return try? Data(contentsOf: fileURL)
+    }
+
+    private func legacySharedDefaultsData() -> Data? {
+        guard usesLegacySharedDefaults else {
+            return nil
+        }
+        return DormWattSharedConfiguration.legacySharedDefaultsData(forKey: key)
+    }
+
+    private func saveDataToFile(_ data: Data) throws {
+        guard let fileURL else {
+            return
+        }
+        let directoryURL = fileURL.deletingLastPathComponent()
+        try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+        try data.write(to: fileURL, options: [.atomic])
     }
 }
 
@@ -123,7 +195,7 @@ final class KeychainService: PasswordStore {
     private let account: String
 
     init(
-        service: String = Bundle.main.bundleIdentifier ?? "com.example.DormWatt",
+        service: String = Bundle.main.bundleIdentifier ?? "mercury.DormWatt",
         account: String = "electricityWebsitePassword"
     ) {
         self.service = service

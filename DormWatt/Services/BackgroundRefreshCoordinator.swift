@@ -17,6 +17,7 @@ final class BackgroundRefreshCoordinator: ObservableObject {
     private let refreshManager: ElectricityRefreshManager
     private let historyStore: ElectricityHistoryStore
     private var timer: Timer?
+    private var didScheduleStartupRefresh = false
 
     private let logger = Logger(
         subsystem: Bundle.main.bundleIdentifier ?? "DormWatt",
@@ -35,6 +36,7 @@ final class BackgroundRefreshCoordinator: ObservableObject {
 
     func start() {
         configureTimer()
+        refreshIfNeededOnStartup()
     }
 
     func reloadConfiguration() {
@@ -74,6 +76,37 @@ final class BackgroundRefreshCoordinator: ObservableObject {
         logger.info("Background refresh scheduled every \(settings.refreshIntervalMinutes, privacy: .public) min")
     }
 
+    private func refreshIfNeededOnStartup() {
+        guard !didScheduleStartupRefresh else {
+            return
+        }
+        didScheduleStartupRefresh = true
+
+        let settings = settingsStore.load()
+        guard settings.backgroundRefreshEnabled else {
+            return
+        }
+
+        let latestRecord = refreshManager.latestRecord() ?? historyStore.latestRecord()
+        guard shouldRefreshOnStartup(latestRecord: latestRecord, settings: settings) else {
+            WidgetCenter.shared.reloadTimelines(ofKind: DormWattSharedConfiguration.widgetKind)
+            return
+        }
+
+        Task { @MainActor [weak self] in
+            await self?.refresh(trigger: "startup")
+        }
+    }
+
+    private func shouldRefreshOnStartup(latestRecord: ElectricityRecord?, settings: AppSettings) -> Bool {
+        guard let latestRecord else {
+            return true
+        }
+
+        let refreshInterval = TimeInterval(max(15, settings.refreshIntervalMinutes) * 60)
+        return Date().timeIntervalSince(latestRecord.timestamp) >= refreshInterval
+    }
+
     private func refresh(trigger: String) async {
         guard !isRefreshing else {
             return
@@ -101,6 +134,7 @@ final class BackgroundRefreshCoordinator: ObservableObject {
             logger.info("Background refresh succeeded. balance=\(record.balance, privacy: .public)")
         } catch {
             statusMessage = error.localizedDescription
+            WidgetCenter.shared.reloadTimelines(ofKind: DormWattSharedConfiguration.widgetKind)
             logger.error("Background refresh failed: \(error.localizedDescription, privacy: .public)")
         }
 

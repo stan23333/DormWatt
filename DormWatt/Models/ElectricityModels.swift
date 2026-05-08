@@ -14,11 +14,49 @@ struct ElectricityRecord: Codable, Equatable, Identifiable {
 }
 
 enum DormWattSharedConfiguration {
-    static let sharedDefaultsSuiteName = "group.com.example.DormWatt"
+    static let sharedDefaultsSuiteName = "group.mercury.DormWatt"
     static let widgetKind = "DormWattWidget"
+    private static let publicPlaceholderSuiteName = "group.com.example.DormWatt"
 
     static func sharedDefaults() -> UserDefaults {
         UserDefaults(suiteName: sharedDefaultsSuiteName) ?? .standard
+    }
+
+    static func sharedContainerURL() -> URL? {
+        let identifiers = [
+            sharedDefaultsSuiteName,
+            publicPlaceholderSuiteName
+        ]
+
+        for identifier in identifiers {
+            if let url = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: identifier) {
+                return url
+            }
+        }
+        return nil
+    }
+
+    static func sharedDataURL(fileName: String) -> URL? {
+        sharedContainerURL()?.appendingPathComponent("DormWatt", isDirectory: true).appendingPathComponent(fileName)
+    }
+
+    static func legacySharedDefaultsData(forKey key: String) -> Data? {
+        guard let containerURL = sharedContainerURL() else {
+            return sharedDefaults().data(forKey: key)
+        }
+
+        let preferencesURL = containerURL
+            .appendingPathComponent("Library", isDirectory: true)
+            .appendingPathComponent("Preferences", isDirectory: true)
+            .appendingPathComponent("\(sharedDefaultsSuiteName).plist")
+
+        if let plistData = try? Data(contentsOf: preferencesURL),
+           let plist = try? PropertyListSerialization.propertyList(from: plistData, format: nil) as? [String: Any],
+           let data = plist[key] as? Data {
+            return data
+        }
+
+        return sharedDefaults().data(forKey: key)
     }
 }
 
