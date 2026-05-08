@@ -8,6 +8,10 @@ WIDGET_ID="mercury.DormWatt.Widget"
 DERIVED_DATA="$(mktemp -d "${TMPDIR:-/tmp}/DormWattInstall.XXXXXX")"
 APP_DST="/Applications/${APP_NAME}.app"
 WIDGET_DST="${APP_DST}/Contents/PlugIns/DormWattWidget.appex"
+SUPPORT_DIR="${HOME}/Library/Application Support/${APP_NAME}"
+LAUNCH_AGENT_DIR="${HOME}/Library/LaunchAgents"
+LAUNCH_AGENT_ID="mercury.DormWatt.WidgetRepair"
+LAUNCH_AGENT_PLIST="${LAUNCH_AGENT_DIR}/${LAUNCH_AGENT_ID}.plist"
 
 cleanup() {
   rm -rf "${DERIVED_DATA}"
@@ -54,6 +58,33 @@ killall pkd >/dev/null 2>&1 || true
 killall cfprefsd >/dev/null 2>&1 || true
 killall chronod >/dev/null 2>&1 || true
 killall NotificationCenter >/dev/null 2>&1 || true
+
+echo "Installing login-time WidgetKit repair agent..."
+mkdir -p "${SUPPORT_DIR}" "${LAUNCH_AGENT_DIR}"
+install -m 755 "${ROOT_DIR}/script/repair_widget_after_login.sh" "${SUPPORT_DIR}/repair_widget_after_login.sh"
+cat > "${LAUNCH_AGENT_PLIST}" <<PLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>${LAUNCH_AGENT_ID}</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>${SUPPORT_DIR}/repair_widget_after_login.sh</string>
+        <string>25</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>${SUPPORT_DIR}/widget-repair.log</string>
+    <key>StandardErrorPath</key>
+    <string>${SUPPORT_DIR}/widget-repair-error.log</string>
+</dict>
+</plist>
+PLIST
+launchctl unload "${LAUNCH_AGENT_PLIST}" >/dev/null 2>&1 || true
+launchctl load "${LAUNCH_AGENT_PLIST}"
 
 echo "Launching ${APP_NAME}..."
 open "${APP_DST}"
